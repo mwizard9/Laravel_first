@@ -16,6 +16,10 @@ class CreateEducationInfosTable extends Migration
         Schema::create('education_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->string('board');
+            $table->string('per_CGPA');
+            $table->string('institude_name');
+            $table->string('symbol.no');
         });
     }
 
