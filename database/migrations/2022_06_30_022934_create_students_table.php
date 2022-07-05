@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('citizenship',20)->unique();
             $table->string('gender',1);
             $table->string('blood_group',3);
+            $table->string('Email',30);
             $table->string('perm_address')->nullable;
             $table->date('dob');
             $table->boolean('is_active');
