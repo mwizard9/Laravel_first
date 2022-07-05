@@ -28,3 +28,4 @@ Route::get('/index',function(){
 });
 
 
+Route::resource('students',StudentController);
