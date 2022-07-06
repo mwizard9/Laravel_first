@@ -26,7 +26,19 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="Email" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Mobile</label>
+                    <input type="string" name="mobile" class="form-control" id="exampleInputPassword1" placeholder="Mobile number">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputDOB">DOB</label>
+                    <input type="text" name="text" class="form-control" id="exampleInputPassword1" placeholder="dob">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">citizenship number</label>
+                    <input type="string" name="citizenship" class="form-control" id="exampleInputPassword1" placeholder="citizenship number">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>
