@@ -18,11 +18,11 @@
                 <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
