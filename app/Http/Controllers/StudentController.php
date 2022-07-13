@@ -42,6 +42,18 @@ class StudentController extends Controller
         $mobile = $request->get('mobile');
         $gender = $request->get('gender');
         $dob = $request->get('dob');
+
+    try{
+        Student::Create([
+            'name'=>$name,
+            'email'=>$email,
+            'mobile'=>$mobile,
+            'gender'=>$gender,
+            'dob'=>$dob,
+            'is_active'=>true
+
+        ])
+    }
     }
 
     /**
