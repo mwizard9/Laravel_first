@@ -37,7 +37,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $mobile = $request->get('mobile');
+        $gender = $request->get('gender');
+        $dob = $request->get('dob');
     }
 
     /**
