@@ -52,9 +52,15 @@ class StudentController extends Controller
             'dob'=>$dob,
             'is_active'=>true
 
-        ])
+        ]);
+        return redirect()->route('Student.index');
+    }
+    catch(\Exception $e){
+        dd($e->getMessage());
+        return redirect()->back();
     }
     }
+    
 
     /**
      * Display the specified resource.
