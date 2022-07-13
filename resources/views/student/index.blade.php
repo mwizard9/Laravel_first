@@ -28,6 +28,8 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Phone</th>
+                      <th>gender</th>
+                      
                     
                     </tr>
                   </thead>
@@ -37,6 +39,7 @@
                     <td>{{ $student->id }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->email }}</td>
+                    <td>{{ $student->gender }}</td>
                     <td>{{ $student->mobile }}</td>
                   </tr>
                   @endforeach

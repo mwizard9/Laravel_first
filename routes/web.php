@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('student/create','StudentController@create')->name('student.create');
+Route::get('/index',function(){
+    return view('student.index');
+});
+
+
 /*
 Route::get('/students',function(){
     return view('students');
@@ -24,11 +28,12 @@ Route::get('/students',function(){
 Route::get('/form',function(){
     return view('form');
 });
-
-Route::get('/index',function(){
-    return view('student.index');
-});
+Route::get('student/create','StudentController@create')->name('student.create');
 */
+
+
+
+
 
 
 
