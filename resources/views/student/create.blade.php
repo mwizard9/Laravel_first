@@ -14,7 +14,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form method="POST" action="{{ route('student.store')}}">
+                @csrf
                 <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
