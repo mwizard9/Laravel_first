@@ -14,9 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students=Student::all();
-        return view('student.index',compact('students'));
-        
+        //select * from student
+        $students = Student::all();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -37,30 +37,32 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('name');
-        $email = $request->get('email');
-        $mobile = $request->get('mobile');
-        $gender = $request->get('gender');
-        $dob = $request->get('dob');
+       
+        $name = $request ->get('name');
+        $email = $request ->get('email');
+        $mobile = $request ->get('mobile');
+        $gender = $request ->get('gender');
+        $blood_group = $request ->get('blood_group');
+        $perm_address = $request ->get('perm_address');
+        $dob = $request ->get('dob');
+        $is_active = $request ->get('is_active');
+        $is_almuni = $request ->get('is_active');
 
-    try{
-        Student::Create([
-            'name'=>$name,
-            'email'=>$email,
-            'mobile'=>$mobile,
-            'gender'=>$gender,
-            'dob'=>$dob,
-            'is_active'=>true
-
-        ]);
-        return redirect()->route('Student.index');
+      
+            Student::create([
+                'name' =>$name,
+                'email' =>$email,
+                'mobile'=>$mobile,
+                'gender' =>$gender,
+                'dob' => $dob,
+                'blood_group'=>$blood_group,
+                'perm_address'=>$perm_address,
+                'is_active' => isset($is_active),
+                "is_almuni" =>isset($is_active)
+            ]);
+            return redirect()->route('student.index');
+       
     }
-    catch(\Exception $e){
-        dd($e->getMessage());
-        return redirect()->back();
-    }
-    }
-    
 
     /**
      * Display the specified resource.
@@ -81,7 +83,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        
     }
 
     /**
@@ -104,6 +107,6 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id)->delete();
     }
 }

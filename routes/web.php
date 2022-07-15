@@ -33,7 +33,7 @@ Route::get('/form',function(){
 Route::get('student/create','StudentController@create')->name('student.create');
 
 
-
+Route::resource('student','StudentController');
 
 
 
