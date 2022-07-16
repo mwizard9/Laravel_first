@@ -17,11 +17,12 @@ Route::get('/index',function(){
 });
 
 
-/*
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+/*
 Route::get('/students',function(){
     return view('students');
 });
@@ -30,10 +31,23 @@ Route::get('/form',function(){
     return view('form');
 });
 */
-Route::get('student/create','StudentController@create')->name('student.create');
+// Route::resource('student','StudentController');
+
+Route::get('student','StudentController@index')->name('student.index');
+
+Route::get('student/create','StudentController@create')
+    ->name('student.create');
+
+Route::post('student','StudentController@store')
+    ->name('student.store');
 
 
-Route::resource('student','StudentController');
+// Route for faculty
+Route::resource('faculty', 'FacultyController');
+
+Route::resource('semester', 'SemesterController');
+
+Route::resource('batch', 'batchController');
 
 
 
