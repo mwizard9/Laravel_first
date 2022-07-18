@@ -11,42 +11,28 @@
 |
 */
 
-
-
-
+//Route for students
 Route::get('/', function () {
     return view('welcome');
 });
-/*
-Route::get('/students',function(){
+
+Route::get('/students',function() {
     return view('students');
 });
 
-Route::get('/form',function(){
-    return view('form');
-});
-*/
-// Route::resource('student','StudentController');
+Route::get('students','StudentController@index')-> name('student.index');
 
-Route::get('student','StudentController@index')
-    ->name('student.index');
+Route::get('students/create','StudentController@create')-> name('students.create');
 
-Route::get('student/create','StudentController@create')
-    ->name('student.create');
+Route::post('students','StudentController@store')-> name('students.store');
 
-Route::post('student','StudentController@store')
-    ->name('student.store');
+// Route::resource('students','StudentController');
 
+//route for faculty
+Route::resource('faculty','FacultyController');
 
-// Route for faculty
-Route::resource('faculty', 'FacultyController');
+//route for semester
+Route::resource('semester','SemesterController');
 
-Route::resource('semester', 'SemesterController');
-
-Route::resource('batch', 'batchController');
-
-
-
-
-
-
+//route for batch
+Route::resource('batch','BatchController');
