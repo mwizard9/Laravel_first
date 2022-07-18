@@ -1,6 +1,30 @@
-<form method = "POST" action = "{{ route('faculty.store') }} ">
-@csrf
+@extends('welcome')
+@section('main_content')
+          <!-- left column -->
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+            <h3 class="card-title">Enter Faculty Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post" action="{{ route('faculty.store') }}">
+            @csrf <!--  cross origin side reference -->
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter Faculty Name">
+                </div>
+                
+            </div>
+            <!-- /.card-body -->
 
-<input type="text" name="faculty_name">
-<button type="submit"> Save </button>
-</form> 
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+@endsection

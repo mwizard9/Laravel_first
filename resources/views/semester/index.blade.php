@@ -1,20 +1,40 @@
 @extends('welcome')
 @section('main_content')
-<table>
-    <thead>
-        <th>#</th>
-        <th>Name</th>
-</thead>
+    <div class="row">
+        <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+            <h3 class="card-title">Semester Detail</h3>
 
-<tbody>
-    <table style='border:1px solid black;'>
-    @foreach($semesters as $semester)
+            <div class="card-tools">
+                <a href = "{{route('semester.create')}}" class = "btn btn-primary btn-sm">Add Semester</a>
+            </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+            <table class="table table-head-fixed text-nowrap">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Semester Name</th>
+                    <th>Is Active</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($semesters as $semester)
+                        <tr>
+                            <td>{{ $semester->id }}</td>
+                            <td>{{ $semester->semester_name }}</td>
+                            <td>{{ $semester->is_active }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        </div>
+    </div>
 
-    <tr >
-        <td style='border:1px solid black;'>{{ $semester->id }}</td>
-        <td style='border:1px solid black;'> {{ $semester->semester_name }} </td>
-</tr>
-    @endforeach
-</tbody>
-</table>
 @endsection
