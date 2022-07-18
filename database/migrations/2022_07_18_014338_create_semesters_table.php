@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationInfosTable extends Migration
+class CreateSemestersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateEducationInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('education_infos', function (Blueprint $table) {
+        Schema::create('semesters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('board');
-            $table->string('per_CGPA');
-            $table->string('institude_name');
-            $table->string('symbol.no');
+            $table ->string('semester_name',15);
+            $table->boolean('is_active') -> default(true);
         });
     }
 
@@ -30,6 +28,6 @@ class CreateEducationInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('education_infos');
+        Schema::dropIfExists('semesters');
     }
 }

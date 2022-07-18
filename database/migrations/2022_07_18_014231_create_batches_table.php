@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegeInfosTable extends Migration
+class CreateBatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateCollegeInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('college_infos', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('faculty');
-            $table->string('batch_id');
-            $table->string('semester_id');
-            $table->string('tu_reg.no');
-            $table->string('symbol.no');
-           
+            $table ->string('batch_name',5);
         });
     }
 
@@ -32,6 +27,6 @@ class CreateCollegeInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('college_infos');
+        Schema::dropIfExists('batches');
     }
 }

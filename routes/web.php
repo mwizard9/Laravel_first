@@ -12,11 +12,6 @@
 */
 
 
-Route::get('/index',function(){
-    return view('student.index');
-});
-
-
 
 
 Route::get('/', function () {
@@ -33,7 +28,8 @@ Route::get('/form',function(){
 */
 // Route::resource('student','StudentController');
 
-Route::get('student','StudentController@index')->name('student.index');
+Route::get('student','StudentController@index')
+    ->name('student.index');
 
 Route::get('student/create','StudentController@create')
     ->name('student.create');
