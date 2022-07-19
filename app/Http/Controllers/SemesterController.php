@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Semester;
 use Illuminate\Http\Request;
-use App\semester;
 
 class SemesterController extends Controller
 {
@@ -14,7 +14,8 @@ class SemesterController extends Controller
      */
     public function index()
     {
-        $semesters = Semester::all();
+        $semesters= Semester::all();
+        //   dd($batches);
         return view('semester.index',compact('semesters'));
     }
 
@@ -36,19 +37,20 @@ class SemesterController extends Controller
      */
     public function store(Request $request)
     {
-        $semester_name = $request->get('semester_name');
-        $is_active = $request->get('is_active');
+        $created_by=$request->get('created_by');
+        $semester_name=$request->get('semester_name');
 
-        try {
+        try{
             Semester::create([
-                'semester_name' => $semester_name,
-                'is_active' => isset($is_active)
+                'created_by'=>1,
+                'semester_name'=>$semester_name,
+                'is_active'=>true,
             ]);
-            return redirect()->route('semester.index');
+            return redirect()->route('semesters.index');
         }
-        catch(\Exception $e) {
+        catch(\Exception $e){
             dd($e->getMessage());
-            return redirect() -> back();
+            return redirect()->back();
         }
     }
 
@@ -60,7 +62,8 @@ class SemesterController extends Controller
      */
     public function show($id)
     {
-        //
+        $semester=Semester::find($id);
+        return view ('semester.show',compact('semester'));
     }
 
     /**
@@ -71,7 +74,8 @@ class SemesterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $semester=Semester::find($id);
+        return view ('semester.edit',compact('semester'));
     }
 
     /**
@@ -83,7 +87,18 @@ class SemesterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $semester=Semester::find($id);
+
+        $created_by=$request->get('created_by');
+        $semester_name=$request->get('semester_name');
+
+
+        $semester['semester_name'] = $semester_name;
+        $semester['created_by'] =1;
+
+        $semester->update();
+        return redirect()->route('semesters.show',$id);
+
     }
 
     /**

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Faculty;
+
 use Illuminate\Http\Request;
-use App\faculty;
 
 class FacultyController extends Controller
 {
@@ -14,7 +15,7 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        $faculties = Faculty::all();
+        $faculties= Faculty::all();
         return view('faculty.index',compact('faculties'));
     }
 
@@ -25,6 +26,7 @@ class FacultyController extends Controller
      */
     public function create()
     {
+        //
         return view('faculty.create');
     }
 
@@ -36,17 +38,20 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('name');
+        $faculty_name=$request->get('faculty_name');
+        $faculty_code=$request->get('faculty_code');
 
-        try {
+        try{
             Faculty::create([
-                'name' => $name,
+                'faculty_code'=>$faculty_code,
+                'faculty_name'=>$faculty_name,
+                'is_active'=>true,
             ]);
-            return redirect()->route('faculty.index');
+            return redirect()->route('faculties.index');
         }
-        catch(\Exception $e) {
+        catch(\Exception $e){
             dd($e->getMessage());
-            return redirect() -> back();
+            return redirect()->back();
         }
     }
 
@@ -58,7 +63,8 @@ class FacultyController extends Controller
      */
     public function show($id)
     {
-        //
+        $faculty =Faculty::find($id);
+        return view ('faculty.show',compact('faculty'));
     }
 
     /**
@@ -69,7 +75,8 @@ class FacultyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faculty=Faculty::find($id);
+        return view ('faculty.edit',compact('faculty'));
     }
 
     /**
@@ -81,7 +88,19 @@ class FacultyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $faculty=Faculty::find($id);
+
+        $faculty_name=$request->get('faculty_name');
+        $faculty_code=$request->get('faculty_code');
+
+
+        $faculty['faculty_name']=$faculty_name;
+        $faculty['faculty_code']=$faculty_code;
+
+        $faculty->update();
+        return redirect()->route('faculties.show',$id);
+
+
     }
 
     /**

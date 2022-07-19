@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -15,8 +16,10 @@ class StudentController extends Controller
     public function index()
     {
         //select * from students
-        $students = Student::all();
+        $students =Student::all();
+        // dd($students);
         return view('student.index',compact('students'));
+
     }
 
     /**
@@ -26,7 +29,11 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('student.create');
+        //
+        // $students =Student::all();
+        return view ('student.create');
+
+
     }
 
     /**
@@ -37,42 +44,42 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('name');
-        $mobile = $request->get('mobile');
-        $email = $request->get('email');
-        $citizenship = $request->get('citizenship');
-        $gender = $request->get('gender');
-        $blood_group = $request->get('blood_group');
-        $perm_address = $request->get('perm_address');
-        $temp_address = $request->get('temp_address');
-        $dob = $request -> get('dob');
-        $is_active = $request->get('is_active');
-        $is_almuni = $request->get('is_almuni');
-        $picture = $request->get('picture');
+      
+        $name=$request->get('name');
+        $email=$request->get('email'); 
+        $phone=$request->get('phone');
+        $picture=$request->get('picture');
+        $dob=$request->get('dob');
+        $gender=$request->get('gender');
+        $citizenship=$request->get('citizenship');
+        $blood_group=$request->get('blood_group');
+        $p_address=$request->get('p_address');
+        $t_address=$request->get('t_address');
+        
+        try{
+        Student::create([
+            'name'=>$name,
+            'email'=>$email,
+            'mobile'=>$phone,
+            'citizenship'=>$citizenship,
+            'blood_group'=>$blood_group,
+            'picture'=>$picture,
+            'perm_address'=>$p_address,
+            'temp_address'=>$t_address,
+            'dob'=>$dob,
+            'gender'=>$gender,
+            'is_active'=>true,
+            'is_almuni'=>false
+        ]);
 
-        try {
-            Student::create([
-                'name' => $name,
-                'mobile' => $mobile,
-                'email' => $email,
-                'citizenship' => $citizenship,
-                'gender' => $gender,
-                'blood_group' => $blood_group,
-                'perm_address' => $perm_address,
-                'temp_address' => $temp_address,
-                'dob' => $dob,
-                'is_active' => isset($is_active),
-                'is_almuni' => isset($is_almuni),
-                'picture' => $picture
-            ]);
-            return redirect()->route('student.index');
-        }
-        catch(\Exception $e) {
-            dd($e->getMessage());
-            return redirect() -> back();
-        }
+        return redirect()->route('student.index');
     }
 
+catch(\Exception $e){
+    dd($e->getMessage());
+    return redirect()->back();
+}
+    }
     /**
      * Display the specified resource.
      *
@@ -81,7 +88,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student=Student::find($id);
+        return view ('student.show',compact('student'));
     }
 
     /**
@@ -92,7 +100,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student =Student::find($id);
+        return view ('student.edit',compact('student'));
+
     }
 
     /**
@@ -104,7 +114,33 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student =Student::find($id);
+
+        $name=$request->get('name');
+        $email=$request->get('email'); 
+        $phone=$request->get('phone');
+        $picture=$request->get('picture');
+        $dob=$request->get('dob');
+        $gender=$request->get('gender');
+        $citizenship=$request->get('citizenship');
+        $blood_group=$request->get('blood_group');
+        $p_address=$request->get('p_address');
+        $t_address=$request->get('t_address');
+
+        $student['name'] = $name;
+        $student['email'] = $email;
+        $student['mobile'] = $phone;
+        $student['picture'] = $picture;
+        $student['dob'] = $dob;
+        $student['gender'] = $gender;
+        $student['citizenship'] = $citizenship;
+        $student['blood_group'] = $blood_group;
+        $student['temp_address'] = $t_address;
+        $student['perm_address'] = $p_address;
+        $student->update();
+        return redirect()->route('students.show',$id);
+
+
     }
 
     /**
