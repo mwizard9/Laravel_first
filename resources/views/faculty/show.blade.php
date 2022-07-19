@@ -24,37 +24,27 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
-                      
-                      <th>Semester Name</th>
-                      <th>Created By</th>
+                      <th style="width: 10px">$id</th>
+                      <th>Faculty code</th>
+                      <th>Faculty Name</th>
+                     
 
-                      <th>Action</th>
-
-    
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($semesters as $semester)
+                 
                   <tr>
-                  <td>{{ $semester->id }}</td>
-                    <td>{{ $semester->semester_name }}</td>
-                    <td>{{ $semester->created_by }}</td>
-                    <td>
-                      <a href="{{ route('semesters.edit', $semester->id) }}">
-                        Edit
-                    </a>
-                    <a href="{{ route('semesters.show', $semester->id) }}">
-                       Show
-                    </a>
-                    </td>
-
+                  <td>{{ $faculty->id }}</td>
+                    <td>{{ $faculty->faculty_code }}</td>
+                    <td>{{ $faculty->faculty_name }}</td>
+                 
                   </tr>
-                  @endforeach
+                 
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+</div>
 @endsection

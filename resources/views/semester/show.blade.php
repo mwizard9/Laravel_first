@@ -1,3 +1,4 @@
+
 @extends('welcome')
 @section('content_header')
 
@@ -7,7 +8,7 @@
 <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Faculty Information</h3>
+                <h3 class="card-title">Semester Information</h3>
 
                 <div class="card-tools">
                   <!-- <ul class="pagination pagination-sm float-right">
@@ -24,33 +25,24 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
+                      <th style="width: 10px">ID</th>
                       
                       <th>Semester Name</th>
                       <th>Created By</th>
-
-                      <th>Action</th>
 
     
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($semesters as $semester)
+                
                   <tr>
                   <td>{{ $semester->id }}</td>
                     <td>{{ $semester->semester_name }}</td>
                     <td>{{ $semester->created_by }}</td>
-                    <td>
-                      <a href="{{ route('semesters.edit', $semester->id) }}">
-                        Edit
-                    </a>
-                    <a href="{{ route('semesters.show', $semester->id) }}">
-                       Show
-                    </a>
-                    </td>
+                
 
                   </tr>
-                  @endforeach
+        
                   </tbody>
                 </table>
               </div>

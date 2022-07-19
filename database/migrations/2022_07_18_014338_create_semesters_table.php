@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -15,9 +16,11 @@ class CreateSemestersTable extends Migration
     {
         Schema::create('semesters', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('semester_name');
+            $table->integer('created_by');
+            $table->integer('is_active');
+
             $table->timestamps();
-            $table ->string('semester_name',15);
-            $table->boolean('is_active') -> default(true);
         });
     }
 

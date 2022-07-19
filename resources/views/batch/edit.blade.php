@@ -9,19 +9,28 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Semester Registration Form</h3>
+                <h3 class="card-title">Batch Edit Form</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="{{route('semesters.store')}}">
+              <form method="POST" action="{{route('batches.store')}}">
                 @csrf
                 <div class="card-body">
+                <div class="form-group">
+                    <label for="name">Batch Name</label>
+                    <input type="text" 
+                    name="batch_name"
+                    value = {{ $batch->batch_name }}
+                    class="form-control" id="batch_name">
+                  </div>
 
                   <div class="form-group">
-                    <label for="name">Semester Name</label>
+                    <label for="name">Batch Year</label>
                     <input type="text" 
-                    name="semester_name"
-                    class="form-control" id="semester_name" placeholder="Enter semester Name">
+                    name="batch_year"
+                    value = {{ $batch->batch_year }}
+                    
+                    class="form-control" id="batch_year">
                   </div>
 
                 <div class="card-footer">

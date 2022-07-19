@@ -9,9 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
 
-//Route for students
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,3 +34,10 @@ Route::resource('semester','SemesterController');
 
 //route for batch
 Route::resource('batch','BatchController');
+*/
+
+Route::resource('students','StudentController');
+Route::resource('eduinfos','EducationalInfoController');
+Route::resource('faculties','FacultyController');
+Route::resource('batches','BatchController');
+Route::resource('semesters','SemesterController');
