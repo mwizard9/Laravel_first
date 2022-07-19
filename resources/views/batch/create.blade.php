@@ -1,29 +1,41 @@
 @extends('welcome')
+@section('content_header')
+
+@endsection
+
 @section('main_content')
-          <!-- left column -->
-    <div class="col-md-6">
-        <!-- general form elements -->
-        <div class="card card-primary">
-            <div class="card-header">
-            <h3 class="card-title">Enter Batch Details</h3>
-            </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form method="post" action="{{ route('batch.store') }}">
-            @csrf <!--  cross origin side reference -->
-            <div class="card-body">
+<div class="row">
+<div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Batch Registration Form</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="{{route('batches.store')}}">
+                @csrf
+                <div class="card-body">
                 <div class="form-group">
-                    <label for="batch_name">Batch Name</label>
-                    <input name="batch_name" type="text" class="form-control" id="batch_name" placeholder="Enter Batch Name">
+                    <label for="name">Batch name</label>
+                    <input type="text" 
+                    name="batch_name"
+                    class="form-control" id="batch_name" placeholder="Enter Batch Name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="name">Batch Year</label>
+                    <input type="text" 
+                    name="batch_year"
+                    class="form-control" id="batch_year" placeholder="Enter Batch Year">
+                  </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+              </form>
             </div>
-            <!-- /.card-body -->
-
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-            </form>
-        </div>
-    </div>
-
+            <!-- /.card -->
+</div>
+</div>
 @endsection
