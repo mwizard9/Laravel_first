@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/students',function() {
     return view('students');
@@ -35,7 +33,9 @@ Route::resource('semester','SemesterController');
 //route for batch
 Route::resource('batch','BatchController');
 */
-
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::resource('students','StudentController');
 Route::resource('eduinfos','EducationalInfoController');
 Route::resource('faculties','FacultyController');

@@ -17,8 +17,8 @@
                     <input name="name" type="text" class="form-control" id="name" placeholder="Enter Full Name">
                 </div>
                 <div class="form-group">
-                    <label for="mobile">Mobile</label>
-                    <input name="mobile" type="text" class="form-control" id="mobile" placeholder="Enter Mobile No.">
+                    <label for="phone">Mobile</label>
+                    <input name="phone" type="text" class="form-control" id="phone" placeholder="Enter Mobile No.">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -37,12 +37,12 @@
                     <input name="blood_group" type="text" class="form-control" id="blood_group" placeholder="Enter blood group">
                 </div>
                 <div class="form-group">
-                    <label for="perm_address">Permanent Address</label>
-                    <input name="perm_address" type="text" class="form-control" id="perm_address" placeholder="Enter Permanent Address">
+                    <label for="p_address">Permanent Address</label>
+                    <input name="p_address" type="text" class="form-control" id="p_address" placeholder="Enter Permanent Address">
                 </div>
                 <div class="form-group">
-                    <label for="temp_address">Temporary Address</label>
-                    <input name="temp_address" type="text" class="form-control" id="temp_address" placeholder="Enter Temporary Address">
+                    <label for="t_address">Temporary Address</label>
+                    <input name="t_address" type="text" class="form-control" id="t_address" placeholder="Enter Temporary Address">
                 </div>
                 <div class="form-group">
                     <label for="dob">Dob</label>

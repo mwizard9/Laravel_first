@@ -10,8 +10,10 @@
                 <h3 class="card-title">Students Information</h3>
 
                 <div class="card-tools">
-                 
-                </div>
+               <a href="{{ route('students.create') }}" class="btn btn-primary btn-sm">
+                   Add Student
+                </a>
+            </div> 
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
