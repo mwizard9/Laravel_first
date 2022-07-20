@@ -9,7 +9,8 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" action="{{ route('students.store') }}">
+            <form method="POST" action="{{route('students.update',$student->id)}}">
+            @method('PATCH')
             @csrf <!--  cross origin side reference -->
             <div class="card-body">
                 <div class="form-group">
@@ -17,8 +18,8 @@
                     <input name="name" type="text"  class="form-control" id="name" value = {{ $student->name }}>
                 </div>
                 <div class="form-group">
-                    <label for="mobile">Mobile</label>
-                    <input name="mobile" type="text" class="form-control" id="mobile" value = {{ $student->mobile }}>
+                    <label for="phone">Mobile</label>
+                    <input name="phone" type="text" class="form-control" id="phone" value = {{ $student->mobile }}>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -37,12 +38,12 @@
                     <input name="blood_group" type="text" class="form-control" id="blood_group" value = {{ $student->blood_group }}>
                 </div>
                 <div class="form-group">
-                    <label for="perm_address">Permanent Address</label>
-                    <input name="perm_address" type="text" class="form-control" id="perm_address" value = {{ $student->perm_address }}>
+                    <label for="p_address">Permanent Address</label>
+                    <input name="p_address" type="text" class="form-control" id="p_address" value = {{ $student->perm_address }}>
                 </div>
                 <div class="form-group">
-                    <label for="temp_address">Temporary Address</label>
-                    <input name="temp_address" type="text" class="form-control" id="temp_address" value = {{ $student->temp_address }}>
+                    <label for="t_address">Temporary Address</label>
+                    <input name="t_address" type="text" class="form-control" id="t_address" value = {{ $student->temp_address }}>
                 <div class="form-group">
                     <label for="dob">Dob</label>
                     <input name="dob" type="text" class="form-control" id="dob" value = {{ $student->dob }}>

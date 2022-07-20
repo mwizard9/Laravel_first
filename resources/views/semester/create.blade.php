@@ -23,6 +23,10 @@
                     name="semester_name"
                     class="form-control" id="semester_name" placeholder="Enter semester Name">
                   </div>
+                  <div class="form-group">
+                    <label for="is_active">Is Active?</label>
+                    <input name="is_active" type="checkbox" class="form-control" id="is_active">
+                </div>
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

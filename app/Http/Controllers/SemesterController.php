@@ -37,14 +37,14 @@ class SemesterController extends Controller
      */
     public function store(Request $request)
     {
-        $created_by=$request->get('created_by');
+        
         $semester_name=$request->get('semester_name');
 
         try{
             Semester::create([
-                'created_by'=>1,
+                
                 'semester_name'=>$semester_name,
-                'is_active'=>true,
+                'is_active'=>isset($is_active)
             ]);
             return redirect()->route('semesters.index');
         }
@@ -89,12 +89,13 @@ class SemesterController extends Controller
     {
         $semester=Semester::find($id);
 
-        $created_by=$request->get('created_by');
+        
         $semester_name=$request->get('semester_name');
+        $is_active = $request->get('is_active');
 
 
         $semester['semester_name'] = $semester_name;
-        $semester['created_by'] =1;
+        $semester['is_active'] = isset($is_active);
 
         $semester->update();
         return redirect()->route('semesters.show',$id);
