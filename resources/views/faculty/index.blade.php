@@ -10,13 +10,16 @@
                 <h3 class="card-title">Faculty Information</h3>
 
                 <div class="card-tools">
-                  <ul class="pagination pagination-sm float-right">
+                <a href="{{ route('faculties.create') }}" class="btn btn-primary btn-sm">
+                   Add Faculty
+                </a>
+                  <!-- <ul class="pagination pagination-sm float-right">
                     <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
               <!-- /.card-header -->
