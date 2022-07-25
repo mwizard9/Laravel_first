@@ -10,7 +10,9 @@
                 <h3 class="card-title">Batch Information</h3>
 
                 <div class="card-tools">
-                <button type="button" onsubmit="{{route('batches.create')}}" class="btn btn-block btn-info btn-flat">ADD</button>
+                <a href="{{ route('batches.create') }}" class="btn btn-primary btn-sm">
+                   Add batch
+                </a>
 
                   <!-- <ul class="pagination pagination-sm float-right"> -->
                     <!-- <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>

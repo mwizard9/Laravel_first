@@ -89,13 +89,14 @@ class FacultyController extends Controller
     public function update(Request $request, $id)
     {
         $faculty=Faculty::find($id);
-
-        $faculty_name=$request->get('faculty_name');
         $faculty_code=$request->get('faculty_code');
 
+        $faculty_name=$request->get('faculty_name');
+       
 
-        $faculty['faculty_name']=$faculty_name;
         $faculty['faculty_code']=$faculty_code;
+        $faculty['faculty_name']=$faculty_name;
+        
 
         $faculty->update();
         return redirect()->route('faculties.show',$id);
