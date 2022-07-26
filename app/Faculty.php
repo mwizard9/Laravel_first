@@ -11,3 +11,5 @@ class Faculty extends Model
         'faculty_name'
     ];
 }
+
+
