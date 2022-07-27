@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\EducationInfo;
+use App\Student;
 use Illuminate\Http\Request;
 
-class EduinfoController extends Controller
+class EducationInfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class EduinfoController extends Controller
      */
     public function index()
     {
-        //
+        $eduinfos =EducationInfo::all();
+        dd($eduinfos);
     }
 
     /**
@@ -21,9 +24,10 @@ class EduinfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createEducationInfo($id)
     {
-        //
+        $student = Student::find($id);
+        return view ('eduinfo.create',compact('id','student'));
     }
 
     /**
@@ -34,7 +38,32 @@ class EduinfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student_id=$request->get('student_id');
+        $board=$request->get('board'); 
+        $institute_name=$request->get('institute_name');
+        $symbol_number=$request->get('symbol_number');
+        $passed_year=$request->get('passed_year');
+        $per_cgpa=$request->get('per_cgpa');
+      
+        
+        try{
+        EducationInfo::create([
+            'student_id'=>$student_id,
+            'board'=>$board,
+            'institute_name'=>$institute_name,
+            'symbol_number'=>$symbol_number,
+            'passed_year'=>$passed_year,
+            'per_cgpa'=>$per_cgpa
+          
+        ]);
+
+        return redirect()->route('eduinfos.index');
+    }
+
+catch(\Exception $e){
+    dd($e->getMessage());
+    return redirect()->back();
+}
     }
 
     /**
@@ -56,7 +85,8 @@ class EduinfoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student =EducationInfo::find($id);
+        return view ('eduinfo.edit',compact('student'));
     }
 
     /**
