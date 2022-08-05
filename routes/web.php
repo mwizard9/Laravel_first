@@ -50,3 +50,6 @@ Route::get('student/{student_id}/family-info/create','FamilyInfoController@creat
 ->name('student-familyinfo.create');
 Route::get('student/{student_id}/college-info/create','CollegeInfoController@createCollegeInfo')
 ->name('student-collegeinfo.create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
